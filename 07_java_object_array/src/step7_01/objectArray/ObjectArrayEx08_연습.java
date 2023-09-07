@@ -116,12 +116,13 @@ class saveTestInfo {
 	void printInfo() {
 		for (int i = 0; i < studentList.length; i++) {
 			System.out.printf("[%d] %s 학생 >>>\n", (i+1), studentList[i].name);
-			for (int j = 0; j < studentList[i].subjects.length; j++) {
-				System.out.printf("[%d] %s과목 = %d점\n", (j+1), studentList[i].subjects[j].name, studentList[i].subjects[j].score);
+			if (studentList[i].subjects != null) {
+				for (int j = 0; j < studentList[i].subjects.length; j++) {
+					System.out.printf("[%d] %s과목 = %d점\n", (j+1), studentList[i].subjects[j].name, studentList[i].subjects[j].score);
+				}
 			}
 			System.out.println();
 		}
-		System.out.println("print test");
 		return ;
 	}
 	
