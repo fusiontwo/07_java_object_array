@@ -1,5 +1,6 @@
 <Controller 클래스 안에 있는 메서드별 중요한 포인트 정리>
 
+
 printData : 이름과 비밀번호 출력
 
 addStudentEx : stdCnt가 0일 때 객체 생성하고 
@@ -31,6 +32,8 @@ loadStudentEx : Controller 클래스의 필드에 선언된 list와 stdCnt값
 위의 필드값을 변경함.
 
  <main 메서드 안의 sel 값별 실행문 중요 포인트 정리>
+
+
 sel == 1 일 때 : StudentEx 인스턴스(참조변수 : temp)를 만들고 
 temp.id에 값 입력받기. checkId로 해당 id가 이미 존재하는지 확인. 
 checkId가 반환한 값이 -1이면 pw 입력받아 temp.pw에 넣고,
