@@ -95,7 +95,7 @@ class saveTestInfo {
 
 		if (studentList[studentIdx].subjects != null) {
 			for (int i = 0; i < studentList[studentIdx].subjects.length; i++) {
-				System.out.printf("[%d] %s\n", (i+1), studentList[studentIdx].subjects[i]);
+				System.out.printf("[%d] %s\n", (i+1), studentList[studentIdx].subjects[i].name);
 			}			
 		}
 		
@@ -114,7 +114,7 @@ class saveTestInfo {
 	 * [subjectIdx+1] studentList[i].Subject8[j].name과목 = studentList[i].Subject8[j].score점
 	 */
 	void printInfo() {
-		for (int i = 0; i < studentList.length; i++) {
+		for (int i = 0; i < studentCnt; i++) {  // i < studentCnt 조건
 			System.out.printf("[%d] %s 학생 >>>\n", (i+1), studentList[i].name);
 			if (studentList[i].subjects != null) {
 				for (int j = 0; j < studentList[i].subjects.length; j++) {
