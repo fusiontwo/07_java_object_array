@@ -1,6 +1,6 @@
 package step7_01.objectArray;
 
-// 2023-09-07 20:00 ~ 20:
+// 2023-09-07 16:30 ~ 18:00
 import java.util.Scanner;
 
 class Subject8{
