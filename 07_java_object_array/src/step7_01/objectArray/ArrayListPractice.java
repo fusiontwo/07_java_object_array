@@ -2,6 +2,15 @@ package step7_01.objectArray;
 
 import java.util.ArrayList;
 
+class Restaurant {
+	
+	String name;
+	String food;
+	int price;
+	boolean isPopular;
+	
+}
+
 public class ArrayListPractice {
 
 	public static void main(String[] args) {
