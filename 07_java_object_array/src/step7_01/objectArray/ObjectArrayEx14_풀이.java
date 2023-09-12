@@ -35,32 +35,47 @@ class MyArrayList {
 		// index가 elementCnt+1보다 작거나 같을 때
 		if (elementCnt == 0) {
 			arr = new int[elementCnt + 1];
+			arr[index] = value;
+			elementCnt++;
 		}
 		else if (elementCnt > 0) {
-			int[] temp = arr;
-			arr = new int[elementCnt + 1];
-			
-			int j = 0;  // temp의 인덱스
-			for (int i = 0; i < arr.length; i++) {  // i는 arr의 인덱스
-				if (i != index) {  // i가 index가 아닐 때
-					arr[i] = temp[j++];  // i가 index인 칸만 건너뛰고 temp를 저장하는 것임.
+			if (index <= elementCnt + 1) {
+				int[] temp = arr;
+				arr = new int[elementCnt + 1];
+				
+				int j = 0;  // temp의 인덱스
+				for (int i = 0; i < arr.length; i++) {  // i는 arr의 인덱스
+					if (i != index) {  // i가 index가 아닐 때
+						arr[i] = temp[j++];  // i가 index인 칸만 건너뛰고 temp를 저장하는 것임.
+					}
 				}
+				temp = null;	
+				arr[index] = value;
+				elementCnt++;
 			}
-			temp = null;
+			else {
+				System.out.println("java.lang.IndexOutOfBoundsException");
+			}
 		}
-		arr[index] = value;
-		elementCnt++;
-		
-		// 아래 부분을 else if문  안에 넣어야 하지 않나?
-//		if (index <= elementCnt + 1) {
-//			arr[index] = value;
-//		}
-		// index가 elementCnt+1보다 클 때
 	}
 
 	
 	void remove(int index) {
-		
+		if (elementCnt == 1) {
+			arr = null;
+			elementCnt--;
+		}
+		else if (elementCnt > 1) {
+			int temp[] = arr;
+			arr = new int[elementCnt - 1];
+			int j = 0;
+			for (int i = 0; i < temp.length; i++) {
+				if (i != index) {
+					arr[j++] = temp[i];					
+				}
+			}
+			elementCnt--;
+		}
 		
 	}
 
@@ -81,7 +96,8 @@ class MyArrayList {
 
 	
 	void clear() {
-
+		arr = null;
+		elementCnt = 0;
 	}
 
 }
@@ -108,23 +124,36 @@ public class ObjectArrayEx14_풀이 {
 		mylist.add(3, 1000);
 		mylist.add(3, 2000);
 		mylist.add(9, 4000);
-//		mylist.add(20, 5000);
+		mylist.add(20, 5000);
 		
 		// 출력하기
 		mylist.print();
 
 		// (index로)삭제하기
-
+		mylist.remove(1);
+		mylist.print();
+		mylist.remove(3);
+		mylist.print();
+		
 		// 길이 구하기
-
+		int size = mylist.size();
+		System.out.println(size);
+		
 		// (index로)값 꺼내오기
-
+		int value = mylist.get(1);
+		System.out.println(value);
+		
 		// 특정 위치의 값 수정하기
-
+		mylist.set(3, 100000);
+		mylist.print();
+		
 		// 모든 데이터를 제거하기
-
+		mylist.clear();
+		mylist.print();
 		
-		
+		// 다시 한 번 추가해봤음.
+		mylist.add(10);
+		mylist.print();
 		
 		System.out.println("\n========================================\n");
 		
